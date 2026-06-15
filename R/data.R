@@ -1,0 +1,67 @@
+#' aegypticdmx
+#'
+#' An Aedes aegypti dataset from the urban area of the metropolitan zone of Mexico City
+#'
+#' @format A sf object with 214 rows and 43 variables
+#' \describe{
+#'   \item{class}{is the binary response variable of presence and pseudo-absence}
+#'   \item{bio1}{Annual mean temperature}
+#'   \item{bio2}{Mean diurnal range}
+#'   \item{bio3}{Isothermality}
+#'   \item{bio4}{Temperature seasonality}
+#'   \item{bio5}{Max temperature of the warmest month}
+#'   \item{bio6}{Min temperature of the coldest month}
+#'   \item{bio7}{Annual temperature range}
+#'   \item{bio8}{Mean temperature of wettest quarter}
+#'   \item{bio9}{Mean temperature of driest quarter}
+#'   \item{bio10}{Mean temperature of warmest quarter}
+#'   \item{bio11}{Mean temperature of coldest quarter}
+#'   \item{bio12}{Annual precipitation}
+#'   \item{bio13}{Precipitation of wettest month}
+#'   \item{bio14}{Precipitation of driest month}
+#'   \item{bio15}{Precipitation seasonality}
+#'   \item{bio16}{Precipitation of wettest quarter}
+#'   \item{bio17}{Precipitation of driest quarter}
+#'   \item{bio18}{Precipitation of warmest quarter}
+#'   \item{bio19}{Precipitation of coldest quarter}
+#'   \item{dhi}{Dinamyc Habitat Indices}
+#'   \item{hfp}{Human Foot Print}
+#'   \item{ia}{Accessibility index}
+#'   \item{ice}{Enviromental quality index }
+#'   \item{im}{Marginalization index }
+#'   \item{irs}{Social lag index }
+#'   \item{pop}{Population}
+#'   \item{indexp}{IndexP 2022}
+#'   \item{suit}{Dengue temperature suitability}
+#'   \item{temp}{Temperature mean}
+#'   \item{built}{Estimated probability of complete coverage by built }
+#'   \item{tree}{Estimated probability of complete coverage by trees}
+#'   \item{ndvi}{Normalized Difference Vegetation Index}
+#'   \item{psdi}{Palmer Drought Severity Index}
+#'   \item{prcp}{Precipitation mean}
+#'   \item{tmin}{average minimum temperature}
+#'   \item{tmax}{average maximum temperature}
+#'   \item{eddi}{Evaporative Demand Drought Index}
+#'   \item{hr}{Relative humidity}
+#'   \item{elevation}{Elevation}
+#'   \item{suhi}{Standardized Urban Heat Island}
+#'   \item{uhi}{Urban Heat Island}
+#'   \item{geometry}{simple feature.}
+#'   ...
+#' }
+#' @source \url{https://zenodo.org/records/14145245, https://zenodo.org/records/20708053}
+#' @details The Ae. aegypti database was used to model the probability of presence in the urban area of the Mexico City metropolitan area using machine learning algorithms XGBoost and LightGBM.
+"ae_aegypti_cdmx"
+#' aoi
+#'
+#' global urban area of cdmx
+#'
+#' @format A sf object with 341 rows and 30 variables:
+#' \describe{
+#'   \item{id}{id of cdmx 383}
+#'   \item{geometry}{simple feature}
+#'   ...
+#' }
+#' @source \url{https://dataforgood.facebook.com/dfg/tools/globalurbanareas}
+#' @details The urban area of the metropolitan area of Mexico City was the global urban areas of Facebook meta
+"aoi"

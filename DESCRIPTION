@@ -1,0 +1,43 @@
+Package: aeaegypticdmx
+Type: Package
+Title: The package provides data on the presence of Aedes aegypti in the metropolitan area of Mexico City
+Version: 0.1.0
+Authors@R: c(person(given = "Felipe Antonio",
+                        family = "Dzul Manzanilla",
+                        role = c("aut", "cre"),
+                        email = "felipe.dzul.m@gmail.com",
+                        comment = c(ORCID = "https://orcid.org/0000-0002-2085-9141")),
+                 person(given = "Fabian",
+                        family = "Correa-Morales",
+                        role = c("ctb"),
+                        email = "fabiancorrea@msn.com",
+                        comment = c(ORCID = "https://orcid.org/0000-0002-6193-1242")))
+Description: The package provides data on the presence 
+    of Aedes aegypti in the metropolitan area of Mexico 
+    City and machine learning algorithms 
+    to predict the presence of Aedes aegypti.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Depends: 
+    R (>= 3.5),
+    tidymodels,
+    tidyverse
+Suggests: 
+    knitr,
+    quarto,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+VignetteBuilder: quarto, knitr
+Imports: 
+    bonsai,
+    dials,
+    doParallel,
+    magrittr,
+    mapview,
+    recipes,
+    skimr,
+    themis,
+    tictoc
+Config/roxygen2/version: 8.0.0
