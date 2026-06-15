@@ -481,7 +481,9 @@ workflows::extract_fit_parsnip() |>
 library(tidyterra)
 library(terra)
 
-lyrs <- terra::rast("/Users/fdzul/Library/CloudStorage/Dropbox/posdoctorado_INSP/proyectos/risk_zmcdmx_paper/1.datasets/2.layers_models/lyrs_model.tif") |>
+lyrs <- terra::rast(system.file("extdata",
+                                  "raster_layers_cdmx.tif",
+                                  package = "aeaegypticdmx"))  |>
     dplyr::select(-dplyr::contains("2023")) |>
     dplyr::rename(hfp = hfp2022,
                   pop = pop_2024,
@@ -512,8 +514,6 @@ pred <- tidysdm::predict_raster(object = lgbm_fitted,
 pred <- terra::crop(x = pred,
                     y = aoi,
                     mask = TRUE)
-terra::writeRaster(pred, filename = "10.output/lgbm_aedes_aegypti_bio_clim_2015_2025.tif",
-                   overwrite=TRUE)
 ```
 
 ### Step 8.3. Visualization
