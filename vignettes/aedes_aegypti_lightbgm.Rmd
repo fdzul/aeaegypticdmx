@@ -428,40 +428,10 @@ denriskmxnonendemic::class_metrics(ml = lgbm_fitted,
                                    ml_title = "LightGBM Aedes aegypti (2015-2025)")
 ```
 
-### Step 5.2 Correlation Tetrácorica
-
-#### Train
-
-```{r cor_tetrachoric_train, warning=FALSE, message=FALSE}
-y  <- train %>%
-    predict(lgbm_fitted , new_data = ., type = "prob") |>
-    dplyr::mutate(Real= train$class) |>
-    dplyr::mutate(Real = ifelse(Real == "presence", 1, 0)) |>
-    dplyr::mutate(pred_presence = ifelse(.pred_presence >= .5, 1, 0)) |>
-    dplyr::select(-.pred_pseudoabs)
-correlation::correlation(data = y,
-                         select = "Real",
-                         select2 = "pred_presence",
-                         method = "tetrachoric")
-```
-
-#### Test
-
-```{r cor_tetrachoric_test, warning=FALSE, message=FALSE}
-x  <- test %>%
-    predict(lgbm_fitted , new_data = ., type = "prob") |>
-    dplyr::mutate(Real= test$class) |>
-    dplyr::mutate(Real = ifelse(Real == "presence", 1, 0)) |>
-    dplyr::mutate(pred_presence = ifelse(.pred_presence >= .5, 1, 0)) |>
-    dplyr::select(-.pred_pseudoabs)
-correlation::correlation(data = x,
-                         select = "Real",
-                         select2 = "pred_presence",
-                         method = "tetrachoric")
-```
 
 
-## Step 7. Post-analysis
+
+## Step 6. Post-analysis
 
 ```{r vip, warning=FALSE, message=FALSE}
 lgbm_fitted |>
@@ -473,9 +443,9 @@ workflows::extract_fit_parsnip() |>
                                 size = 1))
 ```
 
-## Step 8. Prediction
+## Step 7. Prediction
 
-### Step 8.1. Load the layer
+### Step 7.1. Load the layer
 
 ```{r lyrs, warning=TRUE, message=FALSE}
 library(tidyterra)
@@ -503,7 +473,7 @@ lyrs <- terra::rast(system.file("extdata",
 
 ```
 
-### Step 8.2. Prediction
+### Step 7.2. Prediction
 
 ```{r pred, warning=FALSE, message=FALSE}
 # Make the prediction
@@ -516,7 +486,7 @@ pred <- terra::crop(x = pred,
                     mask = TRUE)
 ```
 
-### Step 8.3. Visualization
+### Step 7.3. Visualization
 
 ```{r pred_visualization, warning=FALSE, message=FALSE}
 library(mapgl)
@@ -532,13 +502,13 @@ maplibre_view(pred[[1]],
 
 ```
 
-### Step 9. Stop Cluster
+### Step 8. Stop Cluster
 
 ```{r stop_cl}
 parallel::stopCluster(cl)
 ```
 
-### Step 10. Session Info
+### Step 9. Session Info
 
 ```{r session_info}
 sessioninfo::session_info()
